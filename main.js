@@ -21,7 +21,7 @@ displayLibrary();
 
 function displayLibrary() {
     const libraryDiv = document.getElementById('library');
-    libraryDiv.innerHTML = '';
+    libraryDiv.innerHTML = '<button id="newBookBtn">New Book</button>';
 
     myLibrary.forEach(book => {
         // create a card

@@ -1,5 +1,11 @@
 body {
-    background: aqua;
+    background-image: url("img/library.jpg");
+    background-size: cover;
+}
+
+.book-card {
+    background: white;
+    width: 320px;
 }
 
 #addBookForm {
