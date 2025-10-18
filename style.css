@@ -1,0 +1,17 @@
+body {
+    background: aqua;
+}
+
+#addBookForm {
+    height: 50px;
+    width: 1000px;
+}
+
+input {
+    font-size: 20px;
+}
+
+button {
+    height: 30px;
+    width: 150px;
+}
