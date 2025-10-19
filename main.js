@@ -4,7 +4,7 @@ class Book {
         this.title = title;
         this.author = author;
         this.page = page;
-        this.read = status;
+        this.read = read;
     }
 
     toggleReadStatus() {
@@ -34,7 +34,7 @@ class Library {
     displayLibrary() {
         const libraryDiv = document.getElementById('library');
         libraryDiv.innerHTML = '<button id="newBookBtn">New Book</button>';
-    
+
         this.books.forEach(book => {
             // create a card
             const card = document.createElement('div');
@@ -43,12 +43,12 @@ class Library {
                 <h3>${book.title}</h3>
                 <p>Author: ${book.author}</p>
                 <p>Pages: ${book.page}</p>
-                <p>Status: <span class="status">${book.read}</span></p>
+                <p>Status: <span class="status">${book.read ? 'read' : 'not read yet'}</span></p>
                 <button class="toggle-btn">Toggle Read Status</button>
                 <button class="remove-btn">Remove</button>
             `;
             libraryDiv.appendChild(card);
-    
+
             // remove button
             const removeBtn = card.querySelector('.remove-btn');
             removeBtn.addEventListener('click', () => {
@@ -62,12 +62,12 @@ class Library {
                 book.toggleReadStatus();
                 statusSpan.textContent = book.read;
             });
+        });
 
-            // new button
-            const newBookBtn = document.getElementById('newBookBtn');
-            newBookBtn.addEventListener('click', () => {
-                bookForm.showModal(); // show the modal
-            });
+        // new button
+        const newBookBtn = document.getElementById('newBookBtn');
+        newBookBtn.addEventListener('click', () => {
+            bookForm.showModal(); // show the modal
         });
     }
 }
@@ -85,7 +85,7 @@ addBookForm.addEventListener('submit', (event) => {
     const title = formData.get('title');
     const author = formData.get('author');
     const page = formData.get('page');
-    const status = formData.get('status') ? 'read' : 'not read yet';
+    const status = formData.get('status') === 'on';
 
     library.addBook(title, author, page, status);
     bookForm.close();
