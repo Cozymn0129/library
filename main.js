@@ -4,7 +4,7 @@ class Book {
         this.title = title;
         this.author = author;
         this.page = page;
-        this.read = read;
+        this.read = status;
     }
 
     toggleReadStatus() {

@@ -6,6 +6,16 @@ body {
 .book-card {
     background: white;
     width: 320px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.book-card>h3 {
+    margin: 0;
+}
+
+.toggle-btn {
+    margin-left: 6px;
 }
 
 #bookForm {
